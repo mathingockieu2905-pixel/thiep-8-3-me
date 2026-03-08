@@ -21,12 +21,15 @@
         p {
             font-size: 1.5em;
             line-height: 1.6;
-            animation: fadeInUp 2s ease-out 0.5s both;
+            animation: typing 3s steps(40, end) 1s both, fadeInUp 2s ease-out 0.5s both;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid #ff1493;
         }
         .heart {
             color: #ff1493;
             font-size: 2em;
-            animation: bounce 1s infinite;
+            animation: bounce 1s infinite 4s;
         }
         img {
             max-width: 300px;
@@ -35,7 +38,20 @@
             border: 5px solid #ff1493;
             margin-bottom: 20px;
             box-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
-            animation: zoomIn 1s ease-out;
+            animation: zoomIn 1s ease-out, pulse 2s infinite 2s;
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ff1493;
+            animation: fall 5s linear infinite;
+        }
+        .confetti:nth-child(odd) {
+            background-color: #ffb3ba;
+        }
+        .confetti:nth-child(3n) {
+            background-color: #ff69b4;
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -58,9 +74,42 @@
             from { transform: scale(0.5); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        @keyframes fall {
+            from { transform: translateY(-100vh) rotate(0deg); }
+            to { transform: translateY(100vh) rotate(360deg); }
+        }
     </style>
 </head>
 <body>
+    <div class="confetti" style="left: 10%; animation-delay: 0s;"></div>
+    <div class="confetti" style="left: 20%; animation-delay: 0.5s;"></div>
+    <div class="confetti" style="left: 30%; animation-delay: 1s;"></div>
+    <div class="confetti" style="left: 40%; animation-delay: 1.5s;"></div>
+    <div class="confetti" style="left: 50%; animation-delay: 2s;"></div>
+    <div class="confetti" style="left: 60%; animation-delay: 2.5s;"></div>
+    <div class="confetti" style="left: 70%; animation-delay: 3s;"></div>
+    <div class="confetti" style="left: 80%; animation-delay: 3.5s;"></div>
+    <div class="confetti" style="left: 90%; animation-delay: 4s;"></div>
+    <div class="confetti" style="left: 15%; animation-delay: 0.2s;"></div>
+    <div class="confetti" style="left: 25%; animation-delay: 0.7s;"></div>
+    <div class="confetti" style="left: 35%; animation-delay: 1.2s;"></div>
+    <div class="confetti" style="left: 45%; animation-delay: 1.7s;"></div>
+    <div class="confetti" style="left: 55%; animation-delay: 2.2s;"></div>
+    <div class="confetti" style="left: 65%; animation-delay: 2.7s;"></div>
+    <div class="confetti" style="left: 75%; animation-delay: 3.2s;"></div>
+    <div class="confetti" style="left: 85%; animation-delay: 3.7s;"></div>
+    <div class="confetti" style="left: 5%; animation-delay: 4.2s;"></div>
+    <div class="confetti" style="left: 95%; animation-delay: 4.5s;"></div>
+    <div class="confetti" style="left: 50%; animation-delay: 5s;"></div>
     <img src="anh-me.jpg" alt="Ảnh mẹ Hà Thị Thanh Nga">
     <h1>Chúc mừng ngày 8/3!</h1>
     <p>Kính chúc mẹ Hà Thị Thanh Nga luôn dồi dào sức khỏe, tràn đầy hạnh phúc và tình yêu thương. Mẹ là người phụ nữ tuyệt vời nhất, luôn là nguồn động viên và yêu thương vô điều kiện cho gia đình. Chúc mẹ ngày 8/3 này thật vui vẻ, ý nghĩa và nhận được nhiều lời chúc phúc từ mọi người. Mẹ mãi là niềm tự hào của chúng con! <span class="heart">❤️</span></p>
